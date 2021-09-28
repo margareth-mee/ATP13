@@ -18,10 +18,14 @@ _ Ao final da execução do método main, exiba uma mensagem informando qual o v
 public class Revisao{
     public static void main(String[] args) {
         cabecalho();
-        int soma1 = soma(3,7); 
-        System.out.printf("A soma é %d\n", soma1);
-        double media1 = media(3, 7, 8, 1); 
-        System.out.printf("A média é %.2f\n", media1);
+
+        int soma1 = soma(3,7);
+        int soma2 = soma(2, 5);
+        int soma3 = soma(8, 12);
+        int soma4 = soma(4, 6);
+
+        double media = media(soma1, soma2, soma3, soma4); 
+        System.out.printf("A média é %.2f\n", media);
         
     }
 
