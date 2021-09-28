@@ -24,5 +24,9 @@ public class Revisao{
     static void cabecalho(){
         System.out.println("--------------  Cálculo de média -----------");
     } 
-
+    
+    static int soma(int num1, int num2){
+        int soma = num1 + num2;
+        return soma;
+    } 
 }
