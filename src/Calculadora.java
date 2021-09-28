@@ -4,7 +4,13 @@ public class Calculadora {
     public static void main(String[] args) {
         cabecalho();
         imprimeMenu();
+
         byte opcao = escolheOpcao("Escolha uma opção: ");
+
+        double n1 = lerNumero("\nDigite o primeiro número: ");
+        double n2 = lerNumero("Digite o segundo número: ");
+
+        realizaOpcao(opcao, n1, n2);
     }
 
     static void cabecalho() {
@@ -41,60 +47,56 @@ public class Calculadora {
         return ehValido;
     }
 
-    static void realizaOpcao(byte opcao) {
-
-        double n1 = lerNumero("Digite o primeiro número: ");
-        double n2 = lerNumero("Digite o segundo número: ");
+    static void realizaOpcao(byte opcao, double n1, double n2) {
 
         switch (opcao) {
             case 1:
-                soma(n1, n2);
+                System.out.printf("\nResultado da soma: %.1f\n", soma(n1, n2));
                 break;
             case 2:
-                subtracao(n1, n2);
+                System.out.printf("\nResultado da subtração: %.1f\n", subtracao(n1, n2));
                 break;
             case 3:
-                multiplicacao(n1, n2)
+                System.out.printf("\nResultado da multiplicação: %.1f\n", multiplicacao(n1, n2));
                 break;
             case 4:
-                divisao(n1, n2);
-                break;
-            default:
+                System.out.printf("\nResultado da divisão: %.1f\n", divisao(n1, n2));
                 break;
         }
 
     }
 
-    static double lerNumero(String mensagem){
+    static double lerNumero(String mensagem) {
         Scanner sc = new Scanner(System.in);
         System.out.print(mensagem);
         double numero = Double.parseDouble(sc.nextLine());
         return numero;
     }
 
-    static boolean validaNumero(int n2){
+    static boolean validaNumero(byte opcao, int n2) {
         boolean ehValido = true;
-        
-        if(n2 == 0.0){
-            System.out.println("\nO divisor não pode ser igual a 0.");
+
+        if (opcao == 4 && n2 == 0.0) {
+            System.out.println("\nO divisor não pode ser igual a 0");
             ehValido = false;
         }
+
+        return ehValido;
     }
-    static double soma(double n1, double n2){
+
+    static double soma(double n1, double n2) {
         return n1 + n2;
     }
 
-    static double subtracao(double n1, double n2){
+    static double subtracao(double n1, double n2) {
         return n1 - n2;
     }
 
-    static double multiplicacao(double n1, double n2){
-        return n1*n2;
+    static double multiplicacao(double n1, double n2) {
+        return n1 * n2;
     }
 
-    static double divisao(double n1, double n2){
-
-        validaNumero(n);
-        return n1/n2;
+    static double divisao(double n1, double n2) {
+        return n1 / n2;
     }
 }
